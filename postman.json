@@ -1,0 +1,87 @@
+{
+  "info": {
+    "name": "Controle financeiro - Aula 7",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Receita",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/transacoes",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"descricao\": \"Salário\",\n  \"valor\": 3000,\n  \"tipo\": \"receita\",\n  \"categoria\": \"Trabalho\",\n  \"consumoConsciente\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Despesa essencial",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/transacoes",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"descricao\": \"Aluguel\",\n  \"valor\": 1000,\n  \"tipo\": \"despesa\",\n  \"categoria\": \"Moradia\",\n  \"consumoConsciente\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Compra por impulso",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/transacoes",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"descricao\": \"Compra não planejada\",\n  \"valor\": 150,\n  \"tipo\": \"despesa\",\n  \"categoria\": \"Lazer\",\n  \"consumoConsciente\": false\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Histórico e métricas",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/transacoes"
+      }
+    }
+  ]
+}
